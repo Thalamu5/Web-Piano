@@ -1,20 +1,21 @@
 "use strict";
-
+// The calls the api.
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
 const getElementByNote = (note) => 
     note && document.querySelector(`[note="${note}"]`);
 
-//Hamburger menu functionality
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+// Not for Code camp.
+// Hamburger menu functionality
+// const hamburger = document.querySelector('.hamburger');
+// const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener("click", mobileMenu);
+// hamburger.addEventListener("click", mobileMenu);
 
-function mobileMenu() {
-    hamburger.classList.toggle("active");
-    navMenu.classList.toggle("active");
-}
+// function mobileMenu() {
+//     hamburger.classList.toggle("active");
+//     navMenu.classList.toggle("active");
+// }
 
 // Defining which character will play what note
 const lettersToKeys = {
@@ -102,6 +103,7 @@ const getHz = (note = "A", octave = 4) => {
 const pressedNotes = new Map();
 let clickedKey = "";
 
+// Have this available on download for code camp. 
 // Designing our sound so it sounds better for each note played.
 const playKey = (key) => {
     if (!lettersToKeys[key]) {

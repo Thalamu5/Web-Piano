@@ -1,15 +1,18 @@
+/* Sets font for our entire page and sizes our keyboard slightly making it more uniform. */
 html {
     box-sizing: border-box;
+    font-family: 'Tapestry', cursive;
 }
 
+/* More box sizing. */
 *,
 *:before,
 *:after {
     box-sizing: inherit;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
 }
 
+/* Sets our piano where we want it on the page. */
 body {
     margin: 0;
     height: 100vh;
@@ -18,14 +21,15 @@ body {
 }
 
 /* stylization for header and hamburger menu */
-header {
+/* header {
     position: absolute;
     top: 0;
     background-color: hsla(110, 100%, 75%, 0.671);
     border: inset, 2px, 1px, 2px, 1px solid burlywood;
     width: 100%;
-}
-
+} */
+/* Use later for personal use, not for code camp */
+/* 
 li {
     list-style: none;
 }
@@ -63,7 +67,7 @@ a:active {
     height: 5px;
     margin: 3px auto;
     -webkit-transition: all 0.3s ease-in-out;
-    transition: all o.3s ease-in-out;
+    transition: all .3s ease-in-out;
     background-color: hsla(0, 100%, 50%, 0.8);
 }
 
@@ -87,10 +91,11 @@ a:active {
 
 .nav-link:hover {
     color: solid burlywood;
-}
+} */
 
+/* Personal use, not for code camp */
 /* Adds responsiveness to hamburger menu */
-@media only screen and (max-width: 20000px) {
+/* @media only screen and (max-width: 20000px) {
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -128,7 +133,7 @@ a:active {
     .hamburger.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
-}
+} */
 
 /* Variables to use later for ease of access to colors and shadows. */
 :root {
@@ -145,6 +150,7 @@ a:active {
     --white-80: hsla(0, 0%, 100%, 0.8);
 }
 
+/* Sets key position as well as note text position. */
 .white,
 .black {
     position: relative;
@@ -157,18 +163,21 @@ a:active {
     cursor: pointer;
 }
 
+/* Rounds our first key on the right hand side. */
 #keys li:first-child {
     border-radius: 5px 0 5px 5px;
 }
 
+/* Rounds our last key on the left hand side. */
 #keys li:last-child {
     border-radius: 0 5px 5px 5px;
 }
 
+/* Sets our white keys sizing and color. As well as border colors. */
 .white {
     height: 12.5rem;
     width: 3.5rem;
-    z-index: 1;
+    z-index: 2;
     border-left: 2px solid hsl(0, 0%, 73%);
     border-bottom: 4px solid hsl(0, 0%, 73%);
     border-radius: 0px 0px 5px 5px;
@@ -178,11 +187,12 @@ a:active {
     color: var(--black-30)
 }
 
+/* Sets our black keys sizing and color. As well as border colors. */
 .black {
     height: 8rem;
     width: 2rem;
     margin: 0 0 0 -1rem;
-    z-index: 2;
+    z-index: 3;
     border: 1.5px solid black;
     border-radius: 0 0 3px 3px;
     box-shadow: -1px -1px 2px var(--white-20) inset,
@@ -191,6 +201,7 @@ a:active {
     color: var(--white-50);
 }
 
+/* Designs what white keys will look like when pressed. */
 .white.pressed {
     border-top: 1px solid hsl(0, 0%, 47%);
     border-left: 1px solid hsl(0, 0%, 60%);
@@ -201,6 +212,7 @@ a:active {
     outline: none;
 }
 
+/* Designs what black keys will look like when pressed. */
 .black.pressed {
     box-shadow: -1px -1px 2px var(--white-20) inset,
       0 -2px 2px 3px var(--black-60) inset, 0 1px 2px var(--black-50);
@@ -212,21 +224,227 @@ a:active {
     outline: none;
   }
 
+/* Space between keys. */
 .offset {
     margin: 0 0 0 -1rem;
 }
 
 /* Setting the background and parameters to our keyboard */
 #keyboard {
-    height: 15.25rem;
-    width: 74.1rem;
+    height: 15.50rem;
+    width: 73.7rem;
     margin: 0.5rem auto;
     padding: 3rem 0 0 3rem;
-    position: relative;
-    border: 1px solid var(--keyboard-border);
+    z-index: 1;
+    position: inherit;
+    border: 10px solid var(--keyboard-border);
     border-radius: 1rem;
     background-color: var(--keyboard);
     background-image: url(wood-pattern.png);
     box-shadow: 0 0 80px var(--black-50) inset, 0 1px var(--keyboard-shadow) inset,
       0 5px 15px var(--black-50);
 }
+
+
+
+/* Responsiveness for keys and keyboard */
+/* Include with starter files. */
+
+/* White keys */
+@media only screen and (max-width: 1200px) {
+    .white {
+        height: 12.5rem;
+        width: 2.8rem;
+        z-index: 2;
+        border-left: 2px solid hsl(0, 0%, 73%);
+        border-bottom: 4px solid hsl(0, 0%, 73%);
+        border-radius: 0px 0px 5px 5px;
+        box-shadow: -1px 0 0 var(--white-80) inset, 1px 5px 5px hsl(0, 0%, 80%) inset,
+            0 0 5px var(--black-20);
+        background: linear-gradient(to bottom, hsl(0, 0%, 100%) 0%, white 100%);
+        color: var(--black-30)
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .white {
+        height: 12.5rem;
+        width: 2.3rem;
+        z-index: 2;
+        border-left: 2px solid hsl(0, 0%, 73%);
+        border-bottom: 4px solid hsl(0, 0%, 73%);
+        border-radius: 0px 0px 5px 5px;
+        box-shadow: -1px 0 0 var(--white-80) inset, 1px 5px 5px hsl(0, 0%, 80%) inset,
+            0 0 5px var(--black-20);
+        background: linear-gradient(to bottom, hsl(0, 0%, 100%) 0%, white 100%);
+        color: var(--black-30)
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .white {
+        height: 16.5rem;
+        width: 1.8rem;
+        z-index: 2;
+        border-left: 2px solid hsl(0, 0%, 73%);
+        border-bottom: 4px solid hsl(0, 0%, 73%);
+        border-radius: 0px 0px 5px 5px;
+        box-shadow: -1px 0 0 var(--white-80) inset, 1px 5px 5px hsl(0, 0%, 80%) inset,
+            0 0 5px var(--black-20);
+        background: linear-gradient(to bottom, hsl(0, 0%, 100%) 0%, white 100%);
+        color: var(--black-30)
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .white {
+        height: 18.5rem;
+        width: 1.1rem;
+        z-index: 2;
+        border-left: 2px solid hsl(0, 0%, 73%);
+        border-bottom: 4px solid hsl(0, 0%, 73%);
+        border-radius: 0px 0px 5px 5px;
+        box-shadow: -1px 0 0 var(--white-80) inset, 1px 5px 5px hsl(0, 0%, 80%) inset,
+            0 0 5px var(--black-20);
+        background: linear-gradient(to bottom, hsl(0, 0%, 100%) 0%, white 100%);
+        color: var(--black-30)
+    }
+}
+
+/* End of white keys */
+
+/* Black keys */
+
+@media only screen and (max-width: 1200px) {
+    .black {
+        height: 8rem;
+        width: 2rem;
+        margin: 0 0 0 -1rem;
+        z-index: 3;
+        border: 1.5px solid black;
+        border-radius: 0 0 3px 3px;
+        box-shadow: -1px -1px 2px var(--white-20) inset,
+            0 -5px 2px 3px var(--black-60) inset, 0 2px 4px var(--black-50);
+        background: linear-gradient(85deg, hsl(0, 0%, 13%) 0%, hsl(0, 0%, 30%) 80%);
+        color: var(--white-50);
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .black {
+        height: 8rem;
+        width: 2rem;
+        margin: 0 0 0 -1rem;
+        z-index: 3;
+        border: 1.5px solid black;
+        border-radius: 0 0 3px 3px;
+        box-shadow: -1px -1px 2px var(--white-20) inset,
+            0 -5px 2px 3px var(--black-60) inset, 0 2px 4px var(--black-50);
+        background: linear-gradient(85deg, hsl(0, 0%, 13%) 0%, hsl(0, 0%, 30%) 80%);
+        color: var(--white-50);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .black {
+        height: 10rem;
+        width: 1.8rem;
+        margin: 0 0 0 -1rem;
+        z-index: 3;
+        border: 1.5px solid black;
+        border-radius: 0 0 3px 3px;
+        box-shadow: -1px -1px 2px var(--white-20) inset,
+            0 -5px 2px 3px var(--black-60) inset, 0 2px 4px var(--black-50);
+        background: linear-gradient(85deg, hsl(0, 0%, 13%) 0%, hsl(0, 0%, 30%) 80%);
+        color: var(--white-50);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .black {
+        height: 12rem;
+        width: 1.8rem;
+        margin: 0 0 0 -1rem;
+        z-index: 3;
+        border: 1.0px solid black;
+        border-radius: 0 0 1px 1px;
+        box-shadow: -1px -1px 2px var(--white-20) inset,
+            0 -5px 2px 3px var(--black-60) inset, 0 2px 4px var(--black-50);
+        background: linear-gradient(85deg, hsl(0, 0%, 13%) 0%, hsl(0, 0%, 30%) 80%);
+        color: var(--white-50);
+    }
+}
+
+/* End of black keys */
+
+/* Keyboard */
+
+@media only screen and (max-width: 1200px) {
+    #keyboard {
+        height: 15.50rem;
+        width: 62.0rem;
+        margin: 0.5rem auto;
+        padding: 3rem 0 0 3rem;
+        z-index: 1;
+        position: inherit;
+        border: 10px solid var(--keyboard-border);
+        border-radius: 1rem;
+        background-color: var(--keyboard);
+        background-image: url(wood-pattern.png);
+        box-shadow: 0 0 80px var(--black-50) inset, 0 1px var(--keyboard-shadow) inset,
+        0 5px 15px var(--black-50);
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    #keyboard {
+        height: 15.50rem;
+        width: 55.8rem;
+        margin: 0.5rem auto;
+        padding: 3rem 0 0 3rem;
+        z-index: 1;
+        position: inherit;
+        border: 10px solid var(--keyboard-border);
+        border-radius: 1rem;
+        background-color: var(--keyboard);
+        background-image: url(wood-pattern.png);
+        box-shadow: 0 0 80px var(--black-50) inset, 0 1px var(--keyboard-shadow) inset,
+        0 5px 15px var(--black-50);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #keyboard {
+        height: 15.50rem;
+        width: 41.4rem;
+        margin: 0.5rem auto;
+        padding: 3rem 0 0 3rem;
+        z-index: 1;
+        position: inherit;
+        border: 10px solid var(--keyboard-border);
+        border-radius: 1rem;
+        background-color: var(--keyboard);
+        background-image: url(wood-pattern.png);
+        box-shadow: 0 0 80px var(--black-50) inset, 0 1px var(--keyboard-shadow) inset,
+        0 5px 15px var(--black-50);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #keyboard {
+        height: 15.50rem;
+        width: 28.0rem;
+        margin: 0.5rem auto;
+        padding: 3rem 0 0 3rem;
+        z-index: 1;
+        position: inherit;
+        border: 10px solid var(--keyboard-border);
+        border-radius: 1rem;
+        background-color: var(--keyboard);
+        background-image: url(wood-pattern.png);
+        box-shadow: 0 0 80px var(--black-50) inset, 0 1px var(--keyboard-shadow) inset,
+        0 5px 15px var(--black-50);
+    }
+}
+
+/* End of keyboard */
